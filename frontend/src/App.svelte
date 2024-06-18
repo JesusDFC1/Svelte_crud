@@ -1,8 +1,5 @@
 <script>
-// @ts-nocheck
-
   import { onMount } from 'svelte';
-
   let baul = [];
   let datosbaul = {
     id_baul: null,
@@ -10,7 +7,6 @@
     Usuario: "",
     Clave: "",
   };
-
   const mostrarempleados = async () => {
     try {
       const respuesta = await fetch("http://127.0.0.1:5000/");
@@ -104,16 +100,14 @@ const Actualizar = async () => {
     console.error('Error al actualizar:', error);
   }
 };
-
-
-
-
-
-//////////
   onMount(() => {
     mostrarempleados();
   });
+
+
+
 </script>
+
 <main>
   <div class="container">
     <div class="row">
@@ -160,6 +154,7 @@ const Actualizar = async () => {
           </div>
         </div>
       </div>
+
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">Usuarios</div>
@@ -200,85 +195,104 @@ const Actualizar = async () => {
   </div>
 </main>
 
+
 <style>
-  
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  .card-header {
-    font-size: 1.25em;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+.col-md-6 {
+  flex: 0 0 50%;
+  box-sizing: border-box;
+}
 
-  .form-label {
-    font-weight: bold;
-  }
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
+.card-header {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-  .btn-group {
-    display: flex;
-    gap: 10px;
-  }
+.card-body {
+  flex: 1;
+}
 
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.form-label {
+  font-weight: bold;
+}
 
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
 
-  .btn-success {
-    background-color: #28a745;
-    color: #fff;
-  }
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
 
-  .btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-  }
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
 
-  th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
 
-  th {
-    background-color: #f2f2f2;
-  }
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
 
-  .table-responsive {
-    overflow-x: auto;
-  }
-  </style>
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+</style>
